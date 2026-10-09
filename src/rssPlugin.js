@@ -9,6 +9,12 @@ import convertHtmlToAbsoluteUrls from "./htmlToAbsoluteUrls.js";
 
 
 export default function eleventyRssPlugin(eleventyConfig, options = {}) {
+  for(let option of ["collection", "type", "outputPath", "inputPath", "metadata", "templateData", "stylesheet", "script", "rssPluginOptions"]) {
+    if(Object.hasOwn(options, option)) {
+      throw new Error(`The \`${option}\` option requires the named \`feedPlugin\` export from @11ty/eleventy-plugin-rss. The default \`rssPlugin\` export provides filters for manual feed templates.`);
+    }
+  }
+
   eleventyConfig.versionCheck(pkg["11ty"].compatibility);
 
   // Guaranteed unique, first add wins
