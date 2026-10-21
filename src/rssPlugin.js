@@ -39,7 +39,7 @@ export default function eleventyRssPlugin(eleventyConfig, options = {}) {
   // Dates
   eleventyConfig.addNunjucksFilter("getNewestCollectionItemDate", getNewestCollectionItemDate);
   eleventyConfig.addNunjucksFilter("dateToRfc3339", dateRfc3339);
-  eleventyConfig.addNunjucksFilter("dateToRfc822", dateRfc822);
+  eleventyConfig.addNunjucksFilter("dateToRfc822", (date) => dateRfc822(date, options.timeZone));
 
   // Deprecated in favor of the more efficient HTML <base> plugin bundled with Eleventy
   eleventyConfig.addNunjucksFilter("absoluteUrl", absoluteUrl);
