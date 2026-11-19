@@ -1,5 +1,5 @@
-import posthtml from 'posthtml';
-import urls from '@11ty/posthtml-urls';
+import posthtml from "@11ty/posthtml";
+import urls from "@11ty/posthtml-urls";
 import absoluteUrl from "./absoluteUrl.js";
 
 // This is deprecated! Use the Eleventy HTML <base> plugin instead (2.0+)
